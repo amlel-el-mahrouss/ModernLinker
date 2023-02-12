@@ -1,0 +1,22 @@
+name: Mold CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: DMD install
+      run: make dmd
+
+    - name: Mold Build
+      run: make
+
